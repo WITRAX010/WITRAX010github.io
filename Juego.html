@@ -31,24 +31,18 @@
   <button onclick="cambiarColor()">Cambiar Color</button>
 
   <script>
+
     function cambiarColor() {
       var body = document.getElementsByTagName("body")[0];
       var color = generarColorAleatorio();
       body.style.backgroundColor = color;
     }
 
-    var nuevoTexto = "JUEGA CON PERSONAS DE TODO EL MUNDO Y SE EL MEJOR";
-
+    
     function cambiarTexto() {
+      var nuevoTexto = "JUEGA CON PERSONAS DE TODO EL MUNDO Y SE EL MEJOR";
       var elemento = document.getElementById("texto");
       elemento.textContent = nuevoTexto;
-    }
-
-    function cambiarAtributo() {
-      document.getElementById("imagen").src = "https://i0.wp.com/cinemedios.com/wp-content/uploads/2021/02/Fall-Guys-Switch.jpg?fit=1200%2C800&ssl=1";
-    }
-    function restaurarImagen() {
-      document.getElementById("imagen").src = "12.png";
     }
 
     function ocultarMensaje() {
@@ -69,6 +63,36 @@
       }
       return color;
     }
+
+  //Imagenes seguidas 
+  var images = [
+      'Fall.jpg',
+      'Fall2.jpg',
+      'Fall3.jpg',
+      'Fallninja.jpg',
+      'https://i0.wp.com/cinemedios.com/wp-content/uploads/2021/02/Fall-Guys-Switch.jpg?fit=1200%2C800&ssl=1'
+    ];
+
+    var index = 0;
+    document.getElementById('myImage').src = images[0]; 
+    function anterior() {
+      if (index === 0) {
+        index = images.length - 1;
+      } else {
+        index--; 
+      }
+      document.getElementById('myImage').src = images[index]; 
+    }
+
+    function siguiente() {
+      if (index === images.length - 1) {
+        index = 0; 
+      } else {
+        index++;
+      }
+      document.getElementById('myImage').src = images[index]; 
+    }
+
   </script>
 </body>
 
@@ -79,21 +103,32 @@
 
 <!--------------- Cambio de imagen --------------->
 
-<div>
+<!---<div>
   <img id="imagen" src="12.png" alt="fall" width="500px">
   <button onclick="cambiarAtributo()">Cambiar imagen</button>
   <button onclick="restaurarImagen()">Restaurar imagen</button>
-</div>
+
+  function cambiarAtributo() {
+      document.getElementById("imagen").src = "https://i0.wp.com/cinemedios.com/wp-content/uploads/2021/02/Fall-Guys-Switch.jpg?fit=1200%2C800&ssl=1";
+    }
+    function restaurarImagen() {
+      document.getElementById("imagen").src = "12.png";
+    }
+
+</div>--->
 
 <!--------------- HOLA MUNDO--------------->
-<h2 id="mensaje">Hola mundo</h2>
+<h2 id="mensaje">Seleccione anterior o siguente para cambiar de imagenes</h2>
 <button onclick="ocultarMensaje()">Ocultar mensaje</button </body>
 
 <!---------------Define un elemento <div id="miDiv">--------------->
-
-
 <div id="miDiv"></div>
 <button onclick="escribirTexto()">Escribir mensaje</button>
+<!---------------Cambio de imagen sin un fin>--------------->
+<button onclick="anterior()">Anterior</button>
+<img id="myImage" src="" alt="Imagen" style="width:200px">
+<button onclick="siguiente()">Siguiente</button>
+
 
 
 <h1><strong>Fall Guys </strong></h1>
@@ -131,7 +166,7 @@ como Steam y Metacritic, el juego ha recibido una puntuación promedio de entre 
 </p>
 <p>Kevin Laell Calderon Ramirez</p>
 <p>Grupo 3-E</p>
-<p>17/05/2023</p>
+<p>18/05/2023</p>
 </body>
 
 </html>>
