@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Respuesta'</title>
+
+    <script>
+        window.onload = function() {
+            var urlParams = new URLSearchParams(window.location.search);
+            var nombres = urlParams.get('nombres');
+            var apellidos = urlParams.get('apellidos');
+            var correo = urlParams.get('correo');
+            var fechaNacimiento = urlParams.get('fechaNacimiento');
+            var telefono = urlParams.get('telefono');
+            var contrasena = urlParams.get('contrasena');
+            var currentDate = new Date();
+            var birthDate = new Date(fechaNacimiento);
+            var age = currentDate.getFullYear() - birthDate.getFullYear();
+            var nombresElement = document.createElement('h1');
+            nombresElement.innerHTML = nombres;
+            var apellidosElement = document.createElement('h2');
+            apellidosElement.innerHTML = apellidos;
+            var correoElement = document.createElement('a');
+            correoElement.href = 'mailto:' + correo;
+            correoElement.innerHTML = correo;
+            var telefonoElement = document.createElement('a');
+            telefonoElement.href = 'tel:' + telefono;
+            telefonoElement.innerHTML = telefono;
+            var edadElement = document.createElement('p');
+            edadElement.innerHTML = 'Edad: ' + age + ' años';
+            var seguridadElement = document.createElement('p');
+            if (contrasena.length < 5) {
+                seguridadElement.innerHTML = '¡Advertencia! Tu contraseña es insegura.';
+            }
+            document.body.appendChild(nombresElement);
+            document.body.appendChild(apellidosElement);
+            document.body.appendChild(correoElement);
+            document.body.appendChild(document.createElement('br'));
+            document.body.appendChild(telefonoElement);
+            document.body.appendChild(document.createElement('br'));
+            document.body.appendChild(edadElement);
+            document.body.appendChild(seguridadElement);
+        };
+    </script>
+</head>
+<body>
+</body>
+<h1>Respuesta de Registro</h1>
+</html>
